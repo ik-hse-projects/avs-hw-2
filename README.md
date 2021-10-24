@@ -18,9 +18,9 @@
 
 Параметры компьютера:
 
-- **Процессор:**  AMD Athlon(tm) X4 750K Quad Core Processor
-- **ОС:** NixOS 21.11.git.e83b22e2a36
-- **Kernel:** `Linux 5.10.69 x86_64`
+- **Процессор:**  Intel(R) Core(TM) i5 CPU M 560 @ 2.67GHz
+- **ОС:** Arch Linux
+- **Kernel:** `Linux 5.14.14-arch1-1 x86_64`
 
 ## Использование памяти
 
@@ -68,4 +68,18 @@
     * Итого: 0
 
 # Модули
-По одному модулю (`.c` + `.h`) на каждую структуру, получаем 8 модулей. Плюс точка входа `main.c`
+По одному модулю (`.cpp` + `.h`) на каждый тип, получаем 7 модулей. Плюс драйвер `main.cpp`
+
+# Производительность
+```
+> AVS2 -f /tmp/tests/1000.in -o /tmp/tests/1000.out
+Executed in   30.38 millis
+
+> AVS2 -f /tmp/tests/5000.in -o /tmp/tests/5000.out
+Executed in    523.23 millis
+
+>  ./build/AVS2 -f /tmp/tests/10000.in -o /tmp/tests/10000.out
+Executed in    2.07 secs
+```
+
+В сравнении с [структурным подходом](https://github.com/ik-hse-projects/avs-hw-1#%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C), производительность заметно выше.
