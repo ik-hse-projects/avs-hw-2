@@ -1,13 +1,13 @@
 #include "buffer.h"
 #include <cmath>
 
-unsigned int Stdin::read_uint(unsigned int lower, unsigned int upper) {
+unsigned int Stream::read_uint(unsigned int lower, unsigned int upper) {
     unsigned int result;
     this->stream >> result;
     return result;
 }
 
-int Stdin::read_int(unsigned int lower, unsigned int upper) {
+int Stream::read_int(unsigned int lower, unsigned int upper) {
     int result;
     this->stream >> result;
     return result;

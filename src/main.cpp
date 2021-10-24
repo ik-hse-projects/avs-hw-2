@@ -31,7 +31,7 @@ struct Options {
 
     static Options parse_args(int argc, char** argv) {
         Options result = {nullptr, &std::cout};
-        result.input = new Stdin(std::cin);
+        result.input = new Stream(std::cin);
 
         if (argc <= 1) {
             dprintf(1,
@@ -51,7 +51,7 @@ struct Options {
 
             if (option[1] == 'h') {
                 std::cerr << "Usage:\n";
-                std::cerr << "  default: read from stdin, write to stdout.\n";
+                std::cerr << "  default: read from Stream, write to stdout.\n";
                 std::cerr << "  -r <seed> to use random values\n";
                 std::cerr << "  -f <filename> to read from file\n";
                 std::cerr << "  -o <filename> to set output file\n";
@@ -96,7 +96,7 @@ struct Options {
                 case 'f': {
                     // Read from file
                     result.in_file.open(argument);
-                    result.input = new Stdin(result.in_file);
+                    result.input = new Stream(result.in_file);
                     break;
                 }
                 case 'o': {

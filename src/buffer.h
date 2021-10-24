@@ -9,11 +9,11 @@ class Buffer {
     virtual int read_int(unsigned int lower, unsigned int upper) = 0;
 };
 
-class Stdin : public Buffer {
+class Stream : public Buffer {
     std::istream& stream;
 
  public:
-    Stdin(std::istream& stream) : stream(stream) {}
+    Stream(std::istream& stream) : stream(stream) {}
     unsigned int read_uint(unsigned int lower, unsigned int upper) override;
     int read_int(unsigned int lower, unsigned int upper) override;
 };
